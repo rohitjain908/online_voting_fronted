@@ -18,7 +18,7 @@ class SignUp extends Component{
         super(props);
 
         this.state={
-            username: '',
+            university: '',
             email: '',
             password: '',
             confirm_password: '',
@@ -93,8 +93,8 @@ handleSubmit=(event)=>{
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="username" placeholder="Username"
-                         required="required" value={this.state.username} onChange={this.onChangeInput}/>
+                        <input type="text" class="form-control" name="university" placeholder="University Name"
+                         required="required" value={this.state.university} onChange={this.onChangeInput}/>
                     </div>
                 </div>
                 <div class="form-group">

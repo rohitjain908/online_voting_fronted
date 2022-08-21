@@ -1,5 +1,7 @@
 import { Component } from "react";
 import './signUp.css';
+import {  Navigate } from 'react-router-dom';
+import { login } from '../../api';
 
 
 
@@ -10,7 +12,6 @@ class Login extends Component{
         super(props);
 
         this.state={
-            username: '',
             email: '',
             password: '',
             confirm_password: '',
@@ -28,44 +29,70 @@ class Login extends Component{
             [name]:value
           })
         //setTimeout(()=>{console.log(this.state.name)},1000)
-        // console.log(name)
-        // console.log(value)
-        //console.log(this.state.username)
-
     }
 
-    handleSubmit=(event)=>{
+    handleSubmit = (event) => {
         event.preventDefault()
-        // console.log(event.target)
-        // console.log(event.target.username)
-        // console.log(event.target.username.value)
-        // console.log(event.target.password.value)
-        // console.log("submit")
+        console.log(event.target)
+        console.log(event.target.email.value)
+
+        let email = event.target.email.value;
+        let password = event.target.password.value
 
 
-        const obj = {
-          'username' : "animesh",
-          'password' : "123456"
+        const object = {
+          'email' : email,
+          'password' : password
         }
 
-       this.setState({
-        user : true
-       })
+        login(object).then(res =>{
+           
+            let data = res['data']
+            if(data['messgae'] == 'success'){
+                this.setState({
+                    user : true
+                })
+
+                //console.log("Login")
+
+                let token = data['token']
+
+                localStorage.setItem("token" , token)
+
+                // let to = localStorage.getItem('token')
+                // console.log("Localstorage", to)
+
+            }
+            else{
+                //console.log(data['message'])
+                this.setState({
+                    error_message : data['message']
+                })
+            }
+          }).catch(errors => console.log(errors)) 			
+        
+
+
+        
     }
    
 
     render(){
         return(
             <>
+                <div>
+                    { this.state.user && (<Navigate to="/dashboard"/>) }
+                </div>
                 
                 <div class = "signup-form">
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit = {this.handleSubmit}>
                         <h2>Login</h2>
+                        {this.state.error_message && <p class="error">** {this.state.error_message}</p>}
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" name="username" placeholder="Username"
-                                required="required" value={this.state.username} onChange={this.onChangeInput}/>
+                                <input type="text" class="form-control" name="email" placeholder="Email"
+                                required="required" value={this.state.email} onChange={this.onChangeInput}/>
                             </div>
                         </div>
                         <div class="form-group">
