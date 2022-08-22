@@ -66,7 +66,7 @@ class Login extends Component{
             else{
                 //console.log(data['message'])
                 this.setState({
-                    error_message : data['message']
+                    error_message : data['error']
                 })
             }
           }).catch(errors => console.log(errors)) 			
