@@ -1,7 +1,10 @@
 import { Routes ,Route, Navigate } from 'react-router-dom';
 import Login from './components/Authentication/login'
-import Dashboard from './components/Authentication/dashboard';
 import RegisterVoter from './components/Authentication/RegisterVoter';
+import AdminDashboard from './components/Dashboards/AdminDashboard/dashboard';
+import Voters from './components/Dashboards/AdminDashboard/voters';
+import Votes from './components/Dashboards/AdminDashboard/votes';
+
 
 
 function App() {
@@ -10,7 +13,9 @@ function App() {
       <Routes>
         <Route path = '/login'  element = { <Login/> }/>
         <Route path = '/RegisterVoter' element = { <RegisterVoter/> }/>
-        <Route path = '/dashboard' element={ <Dashboard/> }/>
+        <Route path = '/adminDashboard' element={ <AdminDashboard/> }/>
+        <Route path = '/adminDashboard/votes'  element = {<Votes/>}/>
+        <Route path = '/adminDashboard/voters'  element = {<Voters/>}/>
       </Routes>
 		</>
 	)	
