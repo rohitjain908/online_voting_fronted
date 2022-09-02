@@ -40,7 +40,7 @@ class Sidebar extends Component{
                             <i class="fas fa-chart-pie fa-fw me-3"></i><span>Positions</span>
                             </a>
                             <a
-                            href="#"
+                            href="/adminDashboard/candidates"
                             class="list-group-item list-group-item-action py-2 ripple"
                             ><i class="far fa-user fa-fw me-3"></i><span>Candidates</span></a
                             >

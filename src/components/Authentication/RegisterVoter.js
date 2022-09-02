@@ -82,6 +82,7 @@ handleSubmit = async (event)=>{
         })
 
         const voterObject = {
+            'id' : 2,
             'fullName' : fullName,
             'university' : university,
             'email' : email,

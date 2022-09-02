@@ -89,7 +89,7 @@ class Votes extends Component{
                 <main style={{marginTop : '56px'}}>
                     <div class="container pt-4">
                         <div style = {{padding: '5px', fontSize: '25px'}}>
-                            Voter List
+                            Votes List
                         </div>
                         <BootstrapTable
                             bootstrap4
