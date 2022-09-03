@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 class Sidebar extends Component{
 
@@ -45,7 +45,7 @@ class Sidebar extends Component{
                             ><i class="far fa-user fa-fw me-3"></i><span>Candidates</span></a
                             >
                             <a
-                            href="#"
+                            href="/adminDashboard/ballotPosition"
                             class="list-group-item list-group-item-action py-2 ripple"
                             ><i class="fas fa-globe fa-fw me-3"></i
                             ><span>Ballot Positions</span></a

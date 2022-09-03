@@ -25,3 +25,5 @@ export const getCandidate = (obj) => axios.post('/voting/getCandidate', obj);
 export const editCandidate = (obj) => axios.post('/voting/editCandidate', obj);
 
 export const deleteCandidate = (obj) => axios.post('/voting/deleteCandidate', obj);
+
+export const ballotPosition = (obj) => axios.post('/voting/ballotPosition', obj);
