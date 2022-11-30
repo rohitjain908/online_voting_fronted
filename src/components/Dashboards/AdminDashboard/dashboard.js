@@ -2,10 +2,57 @@ import { Component } from "react";
 import Sidebar from "./sidebar";
 import BarChart from 'react-bar-chart';
 import './sidebar.css';
+import { getDashBoardData } from "../../../api";
 
 
 class Dashboard extends Component{
 
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            votes : '',
+            positions : '',
+            candidates : '',
+            voters : '',
+            adminUniversity : ''
+        }
+    }
+
+
+    componentDidMount(){
+        this.getData();
+    }
+
+
+    getData = () => {
+
+        this.setState({
+            adminUniversity : 'IIT BHU'
+        })
+
+        let body = {
+            "adminUniversity" : 'IIT BHU'
+        }
+        getDashBoardData(body).then(res => {
+            console.log(res);
+            let data = res['data'];
+            if(data['message'] == 'success'){
+                let dashboardData = data['dashBoardData']
+                console.log(dashboardData)
+                this.setState({
+                    votes : dashboardData['votes'],
+                    voters : dashboardData['voters'],
+                    candidates : dashboardData['candidates'],
+                    positions : dashboardData['positions']
+                })
+            }
+
+        })
+
+        
+    }
    
 
     render(){
@@ -34,7 +81,7 @@ class Dashboard extends Component{
                                         <i class="fas fa-pencil-alt text-info fa-3x"></i>
                                         </div>
                                         <div class="text-end">
-                                        <h3>4</h3>
+                                        <h3>{this.state.positions}</h3>
                                         <p class="mb-0">No. of Positions</p>
                                         </div>
                                     </div>
@@ -49,7 +96,7 @@ class Dashboard extends Component{
                                         <i class="far fa-user text-warning fa-3x"></i>
                                         </div>
                                         <div class="text-end">
-                                        <h3>12</h3>
+                                        <h3>{this.state.candidates}</h3>
                                         <p class="mb-0">No. of Candidates</p>
                                         </div>
                                     </div>
@@ -64,7 +111,7 @@ class Dashboard extends Component{
                                         <i class="fa-solid fa-users text-danger fa-3x"></i>
                                         </div>
                                         <div class="text-end">
-                                        <h3>22</h3>
+                                        <h3>{this.state.voters}</h3>
                                         <p class="mb-0">Total Voters</p>
                                         </div>
                                     </div>
@@ -79,7 +126,7 @@ class Dashboard extends Component{
                                         <i class="fas fa-vote-yea text-success fa-3x"></i>
                                         </div>
                                         <div class="text-end">
-                                        <h3>22</h3>
+                                        <h3>{this.state.votes}</h3>
                                         <p class="mb-0">Voters Voted</p>
                                         </div>
                                     </div>

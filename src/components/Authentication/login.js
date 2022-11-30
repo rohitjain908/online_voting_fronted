@@ -21,6 +21,10 @@ class Login extends Component{
 
     }
 
+    componentDidMount() {
+        document.body.style.background = 'LightYellow'
+    }
+
     onChangeInput=(event)=>{
         const name = event.target.name
         const value = event.target.value
@@ -33,8 +37,8 @@ class Login extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target)
-        console.log(event.target.email.value)
+        // console.log(event.target)
+        // console.log(event.target.email.value)
 
         let email = event.target.email.value;
         let password = event.target.password.value
@@ -56,8 +60,12 @@ class Login extends Component{
                 //console.log("Login")
 
                 let token = data['token']
+                let userId = data['userId']
+                let type = data['type']
 
-                localStorage.setItem("token" , token)
+
+                localStorage.setItem(type , token)
+                localStorage.setItem("userId" , userId)
 
                 // let to = localStorage.getItem('token')
                 // console.log("Localstorage", to)
@@ -81,16 +89,20 @@ class Login extends Component{
         return(
             <>
                 <div>
-                    { this.state.user && (<Navigate to="/dashboard"/>) }
+                    { this.state.user && (<Navigate to="/user-dashboard"/>) }
                 </div>
+
+                <div style = {{marginTop : '110px'}}>
+
                 
-                <div class = "signup-form">
+                
+                <div class = "signup-form" >
                     <form onSubmit = {this.handleSubmit}>
                         <h2>Login</h2>
                         {this.state.error_message && <p class="error">** {this.state.error_message}</p>}
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="email" placeholder="Email"
                                 required="required" value={this.state.email} onChange={this.onChangeInput}/>
                             </div>
@@ -105,8 +117,12 @@ class Login extends Component{
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
                         </div>
+                        <div style = {{marginLeft : '35px'}}>
+                            Don't Have an account? <a href = "/register-voter">Register</a>
+                        </div>
                     </form>
 
+                </div>
                 </div>
                 
 

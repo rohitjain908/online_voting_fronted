@@ -25,6 +25,8 @@ async function registerUser(voterObject) {
             }
     }catch(err){
         response = {
+            'message': false,
+            'error_message': 'internal server from backend: ' + err
         }
     }
     return response;
@@ -48,6 +50,10 @@ class RegisterVoter extends Component{
             user: false
         }
 
+    }
+
+    componentDidMount() {
+        document.body.style.background = 'LightYellow'
     }
 
 
@@ -82,7 +88,7 @@ handleSubmit = async (event)=>{
         })
 
         const voterObject = {
-            'id' : 2,
+            'id' : 2,//don't need to pass it...check again
             'fullName' : fullName,
             'university' : university,
             'email' : email,
@@ -90,6 +96,7 @@ handleSubmit = async (event)=>{
         }
 
         const response = await registerUser(voterObject);
+        //a api call return the promise object
         console.log(response)
         if(response['message'] == true){
             this.setState({
@@ -109,7 +116,7 @@ handleSubmit = async (event)=>{
     return(
 
         <>
-             <div>
+            <div>
                 { this.state.user && (<Navigate to="/dashboard"/>) }
             </div>
 
@@ -117,7 +124,6 @@ handleSubmit = async (event)=>{
                 <form onSubmit={this.handleSubmit}>
                     <h2>Create Account</h2>
                     {this.state.error_message && <p class="error">** {this.state.error_message}</p>}
-                    <p class="lead">It's free and hardly takes more than 30 seconds.</p>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -127,7 +133,7 @@ handleSubmit = async (event)=>{
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="university" placeholder="University Name"
                             required="required" value={this.state.university} onChange={this.onChangeInput}/>
                         </div>
@@ -159,8 +165,6 @@ handleSubmit = async (event)=>{
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
                     </div>
-                    <p class="small text-center">By clicking the Sign Up button, you agree to our <br/>
-                    <a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
                     <div class="text-center">Already have an account? <a href="/login">Login here</a>.</div>
                 </form>
             </div>

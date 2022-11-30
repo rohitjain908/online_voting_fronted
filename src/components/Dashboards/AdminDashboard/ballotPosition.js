@@ -91,7 +91,7 @@ class BallotPosition extends Component{
                                 {cards}
                             </div>
                         
-                    </div>
+                        </div>
                 </main>
             </>
         )
