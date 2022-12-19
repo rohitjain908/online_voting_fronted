@@ -66,12 +66,12 @@ function App() {
           <Route path = '/register-voter' element = { <RegisterVoter/> }/>
           <Route path = '/user-dashboard' 
           element = { <ProtectedVoter><UserDashBoard/></ProtectedVoter>}/>
-          <Route path = '/adminDashboard' element={ <AdminDashboard/> }/>
-          <Route path = '/adminDashboard/votes'  element = {<Votes/>}/>
-          <Route path = '/adminDashboard/voters'  element = {<Voters/>}/>
-          <Route path = '/adminDashboard/candidates'  element = { <Candidates/>}/>
-          <Route path = '/adminDashboard/ballotPosition'  element = { <BallotPosition/>}/>
-          <Route path = '/adminDashboard/position'  element = { <Position/> }/>
+          <Route path = '/admin-dashboard' element={ <AdminDashboard/> }/>
+          <Route path = '/admin-dashboard/votes'  element = {<Votes/>}/>
+          <Route path = '/admin-dashboard/voters'  element = {<Voters/>}/>
+          <Route path = '/admin-dashboard/candidates'  element = { <Candidates/>}/>
+          <Route path = '/admin-dashboard/ballotPosition'  element = { <BallotPosition/>}/>
+          <Route path = '/admin-dashboard/position'  element = { <Position/> }/>
           <Route path="*" element = { <Navigate to = "/login" replace />}/>
         </Routes>
 

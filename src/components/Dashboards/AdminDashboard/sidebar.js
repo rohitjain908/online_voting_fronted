@@ -15,7 +15,7 @@ class Sidebar extends Component{
                         <div class="position-sticky">
                         <div class="list-group list-group-flush mx-3 mt-4">
                             <a
-                            href="/adminDashboard"
+                            href="/admin-dashboard"
                             class="list-group-item list-group-item-action py-2 ripple"
                             aria-current="true" 
                             >
@@ -24,29 +24,29 @@ class Sidebar extends Component{
                             </a>
                         
                             <a
-                            href="/adminDashboard/votes"
+                            href="/admin-dashboard/votes"
                             class="list-group-item list-group-item-action py-2 ripple active"
                             ><i class="fas fa-lock fa-fw me-3"></i><span>Votes</span></a
                             >
                             <a
-                            href="/adminDashboard/voters"
+                            href="/admin-dashboard/voters"
                             class="list-group-item list-group-item-action py-2 ripple"
                             ><i class="fa-solid fa-users  fa-fw me-3"></i>
                             <span>Voters</span></a
                             >
                             <a
-                            href="/adminDashboard/position"
+                            href="/admin-dashboard/position"
                             class="list-group-item list-group-item-action py-2 ripple"
                             >
                             <i class="fas fa-chart-pie fa-fw me-3"></i><span>Positions</span>
                             </a>
                             <a
-                            href="/adminDashboard/candidates"
+                            href="/admin-dashboard/candidates"
                             class="list-group-item list-group-item-action py-2 ripple"
                             ><i class="far fa-user fa-fw me-3"></i><span>Candidates</span></a
                             >
                             <a
-                            href="/adminDashboard/ballotPosition"
+                            href="/admin-dashboard/ballotPosition"
                             class="list-group-item list-group-item-action py-2 ripple"
                             ><i class="fas fa-globe fa-fw me-3"></i
                             ><span>Ballot Positions</span></a
