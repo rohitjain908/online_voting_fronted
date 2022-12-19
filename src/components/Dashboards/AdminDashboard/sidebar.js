@@ -1,4 +1,5 @@
 import { Component } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
 class Sidebar extends Component{

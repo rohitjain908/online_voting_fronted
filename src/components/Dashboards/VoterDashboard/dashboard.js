@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Header from "./header";
 import { ballotPosition, isVoted, submitBallot, voterBallot } from '../../../api';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button,Card,CardTitle,Col,Label,Modal,ModalBody,ModalHeader,Row,Form,FormGroup,Input } from 'reactstrap';
 
 
